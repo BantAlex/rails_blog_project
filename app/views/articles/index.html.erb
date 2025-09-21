@@ -3,6 +3,7 @@
 <ul>
     <% @articles.each do |article| %>
     <li>
+        <a href = "/articles/<%= article.id %>">
         <%= article.title %> <%#We use "=" here because we want the actual article title to be displayed.%>
     </li>
     <% end %>

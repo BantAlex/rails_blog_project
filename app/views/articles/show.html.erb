@@ -10,4 +10,38 @@
                   } %></li>
 </ul>
 
+
+<h2>- Comments -</h2>
+<p>======================</p>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>The one who comments:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body%>
+  </p>
+
+  <p>
+    ======================
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with model: [ @article, @article.comments.build ] do |form|%>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+   <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit%>
+  </p>
+<% end %>
+
 <p><%= link_to "Home", root_path %></p>
